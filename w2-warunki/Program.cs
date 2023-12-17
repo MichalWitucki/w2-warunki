@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Numerics;
 using System.Threading.Channels;
 
@@ -8,7 +9,8 @@ namespace w2_warunki
     {
         static void Main(string[] args)
         {
-            //ex1();
+            //ex1(5, 5);
+            //ex1(5, 7);
             //ex2(15);
             //ex2(16);
             //ex3(14);
@@ -29,18 +31,167 @@ namespace w2_warunki
             //ex6(84);
             //ex6(284);
             //ex7();
-            ex8(33, 55, 95);
+            //ex8(80, 71, 0);
+            //ex8(80, 22, 33);
+            //ex9(41);
+            //ex9(-1);
+            //ex9(26);
+            //ex10(40, 55, 65);
+            //ex10(60, 51, 10);
+            //ex10(60, 49, 10);
+            //ex11(3);
+            //ex11(8);
+            //ex12(4);
+            //ex12(0);
+            //ex13();
         }
 
+        private static void ex13()
+        {
+            //Napisz program, który będzie posiadał proste menu (wg. Wzoru poniżej) I będzie prostym kalkulatorem
+            int a, b, action; 
+            Console.Write("Podaj pierwszą liczbę: ");
+            Int32.TryParse(Console.ReadLine(), out a);            
+            Console.Write("Podaj drugą liczbę: ");
+            Int32.TryParse(Console.ReadLine(), out b);
+            Console.WriteLine("1.Dodawanie, 2.Odejmowanie, 3.Mnożenie, 4.Dzielenie");
+            Console.Write("Podaj numer operacji do wykonania: ");
+            Int32.TryParse(Console.ReadLine(), out action);
+            switch (action)
+            {
+                case 1:
+                    Console.WriteLine($"{a}+{b}={a+b}");
+                    break;
+                case 2:
+                    Console.WriteLine($"{a}-{b}={a - b}");
+                    break;
+                case 3:
+                    Console.WriteLine($"{a}*{b}={a * b}");
+                    break;
+                case 4:
+                    if (b == 0)
+                    {
+                        Console.WriteLine("Nie można dzielić przez 0");
+                        break;
+                    }
+                    Console.WriteLine($"{a}/{b}={(float)a / (float)b}");
+                    break;
+                default:
+                    Console.WriteLine("Niepoprawne działanie.");
+                    break;
+            }
+        }
+
+        private static void ex12(int weekday)
+        {
+            //Napisz program, który pobierze numer dnia tygodnia i wyświetli jego nazwę
+            switch (weekday)
+            {
+                case 1:
+                    Console.WriteLine("PONIEDZIAŁEK.");
+                    break;
+                case 2:
+                    Console.WriteLine("WTOREK.");
+                    break;
+                case 3:
+                    Console.WriteLine("ŚRODA.");
+                    break;
+                case 4:
+                    Console.WriteLine("CZWARTEK.");
+                    break;
+                case 5:
+                    Console.WriteLine("PIĄTEK.");
+                    break;
+                case 6:
+                    Console.WriteLine("SOBOTA.");
+                    break;
+                case 7:
+                    Console.WriteLine("NIEDZIELA.");
+                    break;
+                default:
+                    Console.WriteLine("Nie ma takiego dnia.");
+                    break;
+            }
+        }
+
+        private static void ex11(int note)
+        {
+            //Napisz program, który zmieni ocenę ucznia na jej opis
+            switch (note)
+            {
+                case 1:
+                    Console.WriteLine("NDST.");
+                    break;
+                case 2:
+                    Console.WriteLine("DOP.");
+                    break;
+                case 3:
+                    Console.WriteLine("DST.");
+                    break;
+                case 4:
+                    Console.WriteLine("DB.");
+                    break;
+                case 5:
+                    Console.WriteLine("BDB.");
+                    break;
+                case 6:
+                    Console.WriteLine("CEL.");
+                    break;
+                default:
+                    Console.WriteLine("Poza skalą ocen.");
+                    break;
+            }
+        }
+
+        private static void ex10(int a, int b, int c)
+        {
+            //Napisz program, który sprawdzi, czy z 3 podanych długości można stworzyć trójkąt
+            int[] bokiTrojkata = new int[3] { a, b, c };
+            Array.Sort(bokiTrojkata);
+            if (bokiTrojkata[2] < bokiTrojkata[0] + bokiTrojkata[1])
+            {
+                Console.WriteLine("Można zbudować trójkąt.");
+            }
+            else
+            {
+                Console.WriteLine("Nie można zbudować trójkąta.");
+            }
+
+        }
+
+        private static void ex9(int temp)
+        {
+            // Napisz program, który odczyta temperaturę I zwróci nazwę jak w poniższych kryteriach
+            switch (temp)
+            {
+                case > 40:
+                    Console.WriteLine("a weź wyprowadzam się na Alaskę.");
+                    break;
+                case > 30:
+                    Console.WriteLine("zaczyna być słabo, bo gorąco.");
+                    break;
+                case > 20:
+                    Console.WriteLine("w sam raz.");
+                    break;
+                case > 10:
+                    Console.WriteLine("chłodno.");
+                    break;
+                case > 0:
+                    Console.WriteLine("zimno.");
+                    break;
+                case <= 0:
+                    Console.WriteLine("cholernie piździ.");
+                    break;
+            }
+        }
+    
         private static void ex8(int mathPoints, int physicsPoints, int chemistryPoints)
         {
+            //Napisz program, który sprawdzi, czy kandydat może ubiegać się o miejsce na studiach
             int totalPoints = mathPoints + physicsPoints + chemistryPoints;
             int mathPlusOtherHighestResult;
 
             mathPlusOtherHighestResult = physicsPoints >= chemistryPoints ? mathPoints + physicsPoints : mathPoints + chemistryPoints;
-            Console.WriteLine($"total: {totalPoints}");
-            Console.WriteLine($"math+: {mathPlusOtherHighestResult}");
-
             if ((mathPoints > 70 || physicsPoints > 55 || chemistryPoints > 45 || totalPoints > 180) || mathPlusOtherHighestResult > 150)
             {
                 Console.WriteLine("Kandydat dopuszczony do rekrutacji");
@@ -53,6 +204,7 @@ namespace w2_warunki
 
         private static void ex7()
         {
+            // Napisz program w C#, który pobierze 3 liczby od użytkownika i sprawdzi, która jest największa
             int a, b, c, max;
             Console.Out.Write("Podaj pierwszą liczbę: ");
             Int32.TryParse(Console.ReadLine(), out a);
@@ -74,6 +226,7 @@ namespace w2_warunki
 
         private static void ex6(int height)
         {
+            //Napisz program w C#, który pobierze wzrost użytkownika i przypisze mu wymyśloną kategorię wzrostu.
             switch (height)
             {
                 case >= (int)Size.XXXL:
@@ -111,6 +264,7 @@ namespace w2_warunki
         }
         private static void ex5(int age)
         {
+            // Napisz program w C#, który sprawdzi czy podany przez użytkownika wiek uprawnia go do ubiegania się o stanowisko posła, premiera, sentarora, prezydenta. 
             const int PRESIDENT_MIN_AGE = 35;
             const int SENATOR_MIN_AGE = 30;
             const int MEMBER_OF_PARLIAMENT_MIN_AGE = 21;
@@ -135,6 +289,7 @@ namespace w2_warunki
 
         private static void ex4(int year)
         {
+            //Napisz program w C#, który sprawdzi czy podany przez użytkownika rok jest rokiem przestępnym.
             bool isLeapYear = false;
             if (year % 4 == 0)
             {
@@ -153,6 +308,7 @@ namespace w2_warunki
 
         private static void ex3(int v)
         {
+            //Napisz program w C#, który sprawdzi czy podana przez użytkownika liczba jest dodatnia czy ujemna.
             if (v == 0)
             {
                 Console.WriteLine("liczba jest zerem.");
@@ -169,15 +325,17 @@ namespace w2_warunki
 
         private static void ex2(int v)
         {
+            //Napisz program w C#, który sprawdzi czy podana przez użytkownika liczba jest parzysta czy nieparzysta. 
             var check = v % 2 == 0 ? $"{v} jest liczbą parzystą." : $"{v} jest liczbą nieparzystą.";
             Console.WriteLine(check);
         }
 
-        private static void ex1()
+        private static void ex1(int a, int b)
         {
-            int a = 5, b = 5;
+            //Napisz program w C#, który stworzy dwie zmienne int i sprawdzi czy są one równe czy nie.
             var check = a == b ? $"{a} i {b} są równe." : $"{a} i {b} nie są równe.";
             Console.WriteLine(check);
         }
     }
 }
+
