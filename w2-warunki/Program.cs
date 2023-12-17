@@ -159,10 +159,10 @@ namespace w2_warunki
 
         }
 
-        private static void ex9(int temp)
+        private static void ex9(int temperature)
         {
             // Napisz program, który odczyta temperaturę I zwróci nazwę jak w poniższych kryteriach
-            switch (temp)
+            switch (temperature)
             {
                 case > 40:
                     Console.WriteLine("a weź wyprowadzam się na Alaskę.");
@@ -306,27 +306,27 @@ namespace w2_warunki
             Console.WriteLine(check);
         }
 
-        private static void ex3(int v)
+        private static void ex3(int userNumber)
         {
             //Napisz program w C#, który sprawdzi czy podana przez użytkownika liczba jest dodatnia czy ujemna.
-            if (v == 0)
+            if (userNumber == 0)
             {
                 Console.WriteLine("liczba jest zerem.");
             }
-            else if (v > 0)
+            else if (userNumber > 0)
             {
-                Console.WriteLine($"{v} jest liczbą dodatnią.");
+                Console.WriteLine($"{userNumber} jest liczbą dodatnią.");
             }
             else
             {
-                Console.WriteLine($"{v} jest liczbą ujemną.");
+                Console.WriteLine($"{userNumber} jest liczbą ujemną.");
             }
         }
 
-        private static void ex2(int v)
+        private static void ex2(int userNumber)
         {
             //Napisz program w C#, który sprawdzi czy podana przez użytkownika liczba jest parzysta czy nieparzysta. 
-            var check = v % 2 == 0 ? $"{v} jest liczbą parzystą." : $"{v} jest liczbą nieparzystą.";
+            var check = userNumber % 2 == 0 ? $"{userNumber} jest liczbą parzystą." : $"{userNumber} jest liczbą nieparzystą.";
             Console.WriteLine(check);
         }
 
