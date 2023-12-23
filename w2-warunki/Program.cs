@@ -326,7 +326,7 @@ namespace w2_warunki
         {
             //Napisz program w C#, który sprawdzi czy podana przez użytkownika liczba jest parzysta czy nieparzysta. 
             string checkEvenOdd = userNumber % 2 == 0 ? $"{userNumber} jest liczbą parzystą." : $"{userNumber} jest liczbą nieparzystą.";
-            Console.WriteLine(check);
+            Console.WriteLine(checkEvenOdd);
         }
 
         private static void ex1(int a, int b)
