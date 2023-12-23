@@ -51,12 +51,12 @@ namespace w2_warunki
             //Napisz program, który będzie posiadał proste menu (wg. Wzoru poniżej) I będzie prostym kalkulatorem
             int a, b, action; 
             Console.Write("Podaj pierwszą liczbę: ");
-            Int32.TryParse(Console.ReadLine(), out a);            
+            int.TryParse(Console.ReadLine(), out a);            
             Console.Write("Podaj drugą liczbę: ");
-            Int32.TryParse(Console.ReadLine(), out b);
+            int.TryParse(Console.ReadLine(), out b);
             Console.WriteLine("1.Dodawanie, 2.Odejmowanie, 3.Mnożenie, 4.Dzielenie");
             Console.Write("Podaj numer operacji do wykonania: ");
-            Int32.TryParse(Console.ReadLine(), out action);
+            int.TryParse(Console.ReadLine(), out action);
             switch (action)
             {
                 case 1:
@@ -189,10 +189,9 @@ namespace w2_warunki
         {
             //Napisz program, który sprawdzi, czy kandydat może ubiegać się o miejsce na studiach
             int totalPoints = mathPoints + physicsPoints + chemistryPoints;
-            int mathPlusOtherHighestResult;
 
-            mathPlusOtherHighestResult = physicsPoints >= chemistryPoints ? mathPoints + physicsPoints : mathPoints + chemistryPoints;
-            if ((mathPoints > 70 || physicsPoints > 55 || chemistryPoints > 45 || totalPoints > 180) || mathPlusOtherHighestResult > 150)
+            int mathPlusOtherHighestResult = physicsPoints >= chemistryPoints ? mathPoints + physicsPoints : mathPoints + chemistryPoints;
+            if ((mathPoints > 70 && physicsPoints > 55 && chemistryPoints > 45 && totalPoints > 180) || mathPlusOtherHighestResult > 150)
             {
                 Console.WriteLine("Kandydat dopuszczony do rekrutacji");
             }
@@ -206,12 +205,12 @@ namespace w2_warunki
         {
             // Napisz program w C#, który pobierze 3 liczby od użytkownika i sprawdzi, która jest największa
             int a, b, c, max;
-            Console.Out.Write("Podaj pierwszą liczbę: ");
-            Int32.TryParse(Console.ReadLine(), out a);
-            Console.Out.Write("Podaj drugą liczbę: ");
-            Int32.TryParse(Console.ReadLine(), out b);
-            Console.Out.Write("Podaj trzecią liczbę: ");
-            Int32.TryParse(Console.ReadLine(), out c);
+            Console.Write("Podaj pierwszą liczbę: ");
+            int.TryParse(Console.ReadLine(), out a);
+            Console.Write("Podaj drugą liczbę: ");
+            int.TryParse(Console.ReadLine(), out b);
+            Console.Write("Podaj trzecią liczbę: ");
+            int.TryParse(Console.ReadLine(), out c);
             max = a;
             if (b > max)
             {
@@ -326,15 +325,15 @@ namespace w2_warunki
         private static void ex2(int userNumber)
         {
             //Napisz program w C#, który sprawdzi czy podana przez użytkownika liczba jest parzysta czy nieparzysta. 
-            var check = userNumber % 2 == 0 ? $"{userNumber} jest liczbą parzystą." : $"{userNumber} jest liczbą nieparzystą.";
+            string checkEvenOdd = userNumber % 2 == 0 ? $"{userNumber} jest liczbą parzystą." : $"{userNumber} jest liczbą nieparzystą.";
             Console.WriteLine(check);
         }
 
         private static void ex1(int a, int b)
         {
             //Napisz program w C#, który stworzy dwie zmienne int i sprawdzi czy są one równe czy nie.
-            var check = a == b ? $"{a} i {b} są równe." : $"{a} i {b} nie są równe.";
-            Console.WriteLine(check);
+            string checkIfNumbersAreEqual = a == b ? $"{a} i {b} są równe." : $"{a} i {b} nie są równe.";
+            Console.WriteLine(checkIfNumbersAreEqual);
         }
     }
 }
